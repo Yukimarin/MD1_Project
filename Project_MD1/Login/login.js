@@ -36,12 +36,15 @@ formLogin.onsubmit = function login(e) {
     if (passLoginValue !== user.password) {
       deleteErr();
       passErr.innerText = "Mật khẩu không đúng";
-    } else {
+    } else if (user.status != "block") {
       deleteErr();
+      user.isLogin = true;
+      localStorage.setItem("users", JSON.stringify(users));
+      localStorage.setItem("isLogin", "true");
       // Nếu đăng nhập thành công thì mọi người chuyển sang trang chủ
       alert("Thành công");
       // Ví dụ:
-      //   window.location.href = "trang_sau_khi_dang_nhap.html";
+      window.location.href = "../Homepage/home.html";
     }
   }
 };

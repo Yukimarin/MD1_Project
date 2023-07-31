@@ -67,6 +67,9 @@ registerForm.onsubmit = function register(e) {
             userName: usernameValue,
             email: emailValue,
             password: passwordValue,
+            isLogin: false, // check tài khoản đăng nhập
+            status: "active", // Khi mà block tài khoản bên admin thì sẽ chuyển giá trị
+            // status thành "block"
           };
           users.push(newUser);
           // Lưu dữ liệu lên local
